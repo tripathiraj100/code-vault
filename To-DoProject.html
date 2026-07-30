@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project To - Do App</title>
+    <style>
+      .container{
+        width: 300px;
+        height: 400px;
+        border: 1px solid black;
+        margin: auto;
+        background-color: rgb(255, 229, 127); 
+      }
+      h1 {
+        text-align: center;
+        text-decoration: underline blue;
+      }
+      input {
+        margin-left:  10px;
+      } 
+      button{
+        background-color: azure;
+        margin-left: 20px;
+        color: black;
+      }
+      li{
+        margin-bottom: 10px;
+      }
+      *{
+        color: black;
+      }
+    </style>
+  </head>
+  <body>
+      <div class="container">
+        <h1>To - Do App</h1>
+        <input placeholder="enter your task">
+        <button>Add Task</button>
+        <ul>
+          <li>eating<button class="delete">delete</button></li>
+          <li>jogging<button class="delete">delete</button></li>
+        </ul>
+      </div>
+      <script>
+        let btn = document.querySelector("button");
+        let int = document.querySelector("input");
+        let ul = document.querySelector("ul");
+
+        btn.addEventListener("click", function(){
+          let item = document.createElement("li");
+          item.innerText = int.value;
+          let delitem = document.createElement("button");
+          delitem.innerText = "delete";
+          delitem.classList.add("delete");
+          item.appendChild(delitem);
+          ul.appendChild(item);
+          int.value = "";
+        });
+
+        // let delitems = document.querySelectorAll(".delete");
+        // for(delitem of delitems){
+        //   delitem.addEventListener("click",function(){
+        //     let par = this.parentElement;
+        //     console.log(par);
+        //     par.remove();
+        //   });
+        // }
+        ul.addEventListener("click", function(){
+          if(event.target.classList.contains("delete")){
+            let par = event.target.parentElement;
+            par.remove();
+          }
+        })
+      </script>
+  </body>
+</html>
