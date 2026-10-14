@@ -1,0 +1,13 @@
+const express =  require("express");
+// const mongoose = require("mongoose");
+const router = express.Router();
+const Product = require("../Models/products.models.js");
+const { getProducts } = require("../controllers/product.controller.js");
+const { createProducts } = require("../controllers/product.controller.js");
+const { updateProducts } = require("../controllers/product.controller.js");
+const { deleteProducts } = require("../controllers/product.controller.js");
+router.get("/",getProducts);
+router.post("/" , createProducts);
+router.delete("/:id",deleteProducts);
+router.put("/:id",updateProducts);
+module.exports = router;
